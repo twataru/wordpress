@@ -2,7 +2,7 @@ $.ajax({
     type: "post",
     url: "http://" + location.hostname + "/wp-admin/admin-ajax.php",
     data: {
-        'action': "foo", //php‚ÅƒtƒbƒN‚µ‚½ŠÖ”–¼
+        'action': "foo", //phpã§ãƒ•ãƒƒã‚¯ã—ãŸé–¢æ•°å
     }
 })
 .done( function( response ){
