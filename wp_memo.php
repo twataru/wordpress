@@ -13,24 +13,24 @@ function foo() {
         $response[ "rsp" ]  = $data->get_error_code();
         $response[ "body" ] = $data->get_error_message( $response[ "rsp" ] );
     }
-    echo json_encode( $response );									//json形式で渡す
+    echo json_encode( $response ); //json形式で渡す
     die;
 }
 
-add_action( 'wp_ajax_foo' ,'foo' );			//ログインユーザー用フック
-add_action( 'wp_ajax_nopriv_foo' ,'foo' );	//未ログインユーザー用フック
+add_action( 'wp_ajax_foo' ,'foo' );         //ログインユーザー用フック
+add_action( 'wp_ajax_nopriv_foo' ,'foo' );  //未ログインユーザー用フック
 
 function getBar( $url ) {
-    $response = wp_remote_get( $url ,array( 'timeout' => 20 ) );	//GETメソッドを送信する。
+    $response = wp_remote_get( $url ,array( 'timeout' => 20 ) );    //GETメソッドを送信する。
     if ( is_wp_error( $response ) ) {
         return $response;
     }
-    $rsp = wp_remote_retrieve_response_code( $response ); 			//wp_remote系関数のレスポンスコードを取得する。
+    $rsp = wp_remote_retrieve_response_code( $response );           //wp_remote系関数のレスポンスコードを取得する。
     if ( $rsp !== WP_Http::OK ) {
         $message = buzz;
         return new WP_Error( $rsp ,$message );
     }
-    return wp_remote_retrieve_body( $response );					//bodyを取得
+    return wp_remote_retrieve_body( $response );                    //bodyを取得
 }
 
 function setBar() {
