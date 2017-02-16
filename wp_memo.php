@@ -1,8 +1,16 @@
 <?php
 
+/*
+  Plugin Name: test-plugin
+  Plugin URI:
+  Description: メモ用
+  Author: twataru
+ */
+
+
 function foo() {
 
-    $ini      = parse_ini_file( /*iniファイル*/);
+    $ini      = parse_ini_file( /*iniファイル*/ );
     $data     = getBar( /*URL*/ );
     $response = array();
 
@@ -34,8 +42,8 @@ function getBar( $url ) {
 }
 
 function setBar() {
-    wp_enqueue_script( 'js' ,/*スクリプトへのパス*/ ,array( 'jquery' ) ,false ,true );	// wp_enqueue_script(シンボル ,ソースパス ,前提スクリプト ,ファイルのバージョン ,head{false}かbody{true}か );
-    wp_enqueue_style( 'css' ,plugins_url( /*スタイルへのパス*/ ,__FILE__ ) );				//  wp_enqueue_style( シンボル ,ソースパス ,前提スタイル ,ファイルのバージョン ,メディア )
+    wp_enqueue_script( 'js' ,/*スクリプトへのパス*/ ,array( 'jquery' ) ,false ,true );  // wp_enqueue_script(シンボル ,ソースパス ,前提スクリプト ,ファイルのバージョン ,head{false}かbody{true}か );
+    wp_enqueue_style( 'css' ,plugins_url( /*スタイルへのパス*/ ,__FILE__ ) );           //  wp_enqueue_style( シンボル ,ソースパス ,前提スタイル ,ファイルのバージョン ,メディア )
     $set = file_get_contents( __DIR__ . '/temp.html' );
     return $set;
 }
