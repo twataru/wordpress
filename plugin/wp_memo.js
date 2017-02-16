@@ -6,6 +6,7 @@ $.ajax({
     }
 })
 .done( function( response ){
+    //JSON.parse( response ) でjs配列に変換
     console.log( response );
 })
 .fail( function(){
