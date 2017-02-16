@@ -3,15 +3,15 @@
 /*
   Plugin Name: test-plugin
   Plugin URI:
-  Description: メモ用
+  Description: プロパティはiniファイルに記述
   Author: twataru
  */
 
 
 function foo() {
 
-    $ini      = parse_ini_file( /*iniファイル*/ );
-    $data     = getBar( /*URL*/ );
+    $ini      = parse_ini_file( /* src */ );
+    $data     = getBar( /* URL */ );
     $response = array();
 
     if ( !is_wp_error( $data ) ) {
